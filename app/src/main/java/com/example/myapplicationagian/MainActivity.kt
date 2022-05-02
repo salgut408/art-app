@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
             .build()
        val artService = retrofit.create(ArtService::class.java)
-        artService.searchArt("title,image_id,iiif_url,artist_title", "cats", "100")
+        artService.searchArt("title,image_id,iiif_url,artist_title", "gay", "100")
                 .enqueue(object : Callback<ArtResult> {
             override fun onResponse(call: Call<ArtResult>, response: Response<ArtResult>) {
                 Log.i(TAG, "onResponse $response")

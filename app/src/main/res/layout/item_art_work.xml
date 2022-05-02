@@ -5,7 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary">
 
         <TextView
             android:id="@+id/tvName"
@@ -14,7 +15,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/chivo"
             android:text="TextView"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryDarkColor"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +25,7 @@
             tools:text="Title of art" />
 
         <ImageView
+            android:backgroundTint="@color/design_default_color_primary_dark"
             android:id="@+id/imageView"
             android:layout_width="349dp"
             android:layout_height="267dp"
@@ -50,5 +52,17 @@
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:text="artistName" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerInsetEnd="16dp"
+            app:dividerInsetStart="16dp"
+            app:dividerThickness="4dp"
+            app:dividerColor="@color/primaryDarkColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
