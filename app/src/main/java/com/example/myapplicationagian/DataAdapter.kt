@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.myapplicationagian.databinding.ItemArtWorkBinding
 
 class DataAdapter(val context: Context, val artWorks: List<Data>) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
@@ -34,7 +36,9 @@ class DataAdapter(val context: Context, val artWorks: List<Data>) : RecyclerView
         fun bind(artwork: Data) {
 
         binding.tvName.text = artwork.title
+            binding.tvArtistName.text = artwork.artistTitle
             binding.executePendingBindings()
+            Glide.with(context).load(artwork.getArtImageUrl()).into(binding.imageView)
 
 
         }

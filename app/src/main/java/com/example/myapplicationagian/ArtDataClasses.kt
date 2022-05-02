@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 //Top level json response
 data class ArtResult(
     @SerializedName("data"       ) var data       : List<Data> = listOf<Data>(),
-//    @SerializedName("config"     ) var config     : Config?         = Config()
+    @SerializedName("config"     ) var config     : Config?         = Config()
     )
 
 
@@ -26,8 +26,8 @@ data class Data(
     }
 }
 
-//data class Config(
-//    @SerializedName("iiif_url"    ) var iiifUrl    : String? = null,
-//    @SerializedName("website_url" ) var websiteUrl : String? = null
-//    )
+data class Config(
+    @SerializedName("iiif_url"    ) var iiifUrl    : String? = null,
+    @SerializedName("website_url" ) var websiteUrl : String? = null
+    )
 
