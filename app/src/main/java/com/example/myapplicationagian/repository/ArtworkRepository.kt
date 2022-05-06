@@ -21,7 +21,7 @@ class ArtworkRepository(private val database: ArtworkDatabase) {
     suspend fun refreshArtworks() {
         withContext(Dispatchers.IO) {
             try{
-                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
+                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm)
                 database.artDao.insertAll(artworks.artworkObject.asDatabaseModel())
                 Log.i("artworks", "refreshArtwork fail")
             } catch (err: Exception) {

@@ -17,7 +17,7 @@ interface ArtDao {
 }
 
 
-@Database(entities = [DatabaseArtwork::class], version = 1, exportSchema = false)
+@Database(entities = [DatabaseArtwork::class], version = 2, exportSchema = false)
 abstract class ArtworkDatabase: RoomDatabase() {
     abstract val artDao: ArtDao
 }
@@ -29,7 +29,9 @@ fun getDatabase(context: Context): ArtworkDatabase {
         if(!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
             ArtworkDatabase::class.java,
-            "artworks").build()
+            "artworks")
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
     return INSTANCE
