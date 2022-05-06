@@ -2,22 +2,29 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <data>
+        <variable
+            name="artwork"
+            type="com.example.myapplicationagian.ArtworkObject" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary">
+        android:background="@color/primaryColor">
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/chivo"
-            android:text="TextView"
-            android:textColor="@color/primaryDarkColor"
+            android:text="@{artwork.title}"
+            android:textColor="@color/primaryTextColor"
             android:textSize="20sp"
-            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.098"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,14 +32,16 @@
             tools:text="Title of art" />
 
         <ImageView
-            android:backgroundTint="@color/design_default_color_primary_dark"
             android:id="@+id/imageView"
             android:layout_width="349dp"
             android:layout_height="267dp"
-            android:layout_marginStart="16dp"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/design_default_color_primary_dark"
             app:layout_constraintEnd_toEndOf="parent"
+            app:pictureUrl="@{artwork.otherImgUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
@@ -44,7 +53,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
+            android:text="@{artwork.artistTitle}"
+            android:textColor="@color/secondaryDarkColor"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +69,7 @@
             app:dividerInsetEnd="16dp"
             app:dividerInsetStart="16dp"
             app:dividerThickness="4dp"
-            app:dividerColor="@color/primaryDarkColor"
+            app:dividerColor="@color/secondaryLightColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

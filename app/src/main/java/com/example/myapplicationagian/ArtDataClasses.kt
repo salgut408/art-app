@@ -1,19 +1,20 @@
 package com.example.myapplicationagian
 
+
 import com.google.gson.annotations.SerializedName
 //Top level json response
 data class ArtResult(
-    @SerializedName("data"       ) var data       : List<Data> = listOf<Data>(),
+    @SerializedName("data"       ) var artworkObject       : List<ArtworkObject> = listOf<ArtworkObject>(),
     @SerializedName("config"     ) var config     : Config?         = Config()
     )
 
 
 
-data class Data(
-    @SerializedName("_score"       ) var Score       : Double? = null,
-    @SerializedName("artist_title" ) var artistTitle : String? = null,
-    @SerializedName("image_id"     ) var imageId     : String? = null,
-    @SerializedName("title"        ) var title       : String? = null
+data class ArtworkObject(
+    @SerializedName("_score"       ) var score       : Double,
+    @SerializedName("artist_title" ) var artistTitle : String?,
+    @SerializedName("image_id"     ) var imageId     : String?,
+    @SerializedName("title"        ) var title       : String?
     ) {
         //until access to Coinfig...
         fun getArtImageUrl(): String? {
