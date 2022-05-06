@@ -7,11 +7,11 @@ import androidx.room.*
 @Dao
 interface ArtDao {
 
-    @Query("SELECT * FROM artworks ORDER BY artistTitle")
+    @Query("SELECT * FROM artworks")
     fun getArt(): LiveData<List<DatabaseArtwork>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg artwork: List<DatabaseArtwork>)
+    fun insertAll( artwork: List<DatabaseArtwork>)
 
 
 }

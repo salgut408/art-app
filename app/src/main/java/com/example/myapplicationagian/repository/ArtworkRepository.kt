@@ -9,7 +9,6 @@ import com.example.myapplicationagian.room.asDatabaseModel
 import com.example.myapplicationagian.room.asDomainModel
 import com.example.myapplicationagian.api.ArtApiService
 import com.example.myapplicationagian.api.artWorks
-import com.example.myapplicationagian.room.DatabaseArtwork
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -22,7 +21,7 @@ class ArtworkRepository(private val database: ArtworkDatabase) {
     suspend fun refreshArtworks() {
         withContext(Dispatchers.IO) {
             try{
-                val artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
+                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
                 database.artDao.insertAll(artworks.artworkObject.asDatabaseModel())
                 Log.i("artworks", "refreshArtwork fail")
             } catch (err: Exception) {

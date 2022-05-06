@@ -14,10 +14,10 @@ data class ArtworkObject(
     @SerializedName("_score"       ) var score       : Double,
     @SerializedName("artist_title" ) var artistTitle : String?,
     @SerializedName("image_id"     ) var imageId     : String?,
-    @SerializedName("title"        ) var title       : String?
-    ) {
+    @SerializedName("title"        ) var title       : String?)
+{
         //until access to Coinfig...
-        fun getArtImageUrl(): String? {
+        fun getArtImageUrl(): String {
             val artUrlToDisplay = "https://www.artic.edu/iiif/2/" + imageId + "/full/843,/0/default.jpg"
             return artUrlToDisplay
         }
