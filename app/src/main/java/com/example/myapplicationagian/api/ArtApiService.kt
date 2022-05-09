@@ -16,9 +16,9 @@ class ArtApiService {
         @GET("artworks/search")
         suspend fun getArt(
             @Query("fields") fieldTerms: String,
-            @Query("q") searchTerm: String): ArtResult
-//        ,
-//            @Query("limit") limit: String) : ArtResult
+            @Query("q") searchTerm: String,
+            @Query("limit") limit: String
+        ) : ArtResult
     }
     object ArtApi {
 

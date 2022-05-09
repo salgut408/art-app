@@ -4,5 +4,6 @@ enum class FilterArt {
     CATS,
     DOGS,
     PEOPLE,
-    ALL
+    ALL,
+    ALPHABETIZED
 }

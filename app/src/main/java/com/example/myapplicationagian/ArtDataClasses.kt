@@ -14,8 +14,10 @@ data class ArtworkObject(
     @SerializedName("_score"       ) var score       : Double,
     @SerializedName("artist_title" ) var artistTitle : String?,
     @SerializedName("image_id"     ) var imageId     : String?,
-    @SerializedName("title"        ) var title       : String?,
-    @SerializedName("place_of_origin") var place_of_origin : String?)
+    @SerializedName("title"        ) var title       : String,
+    @SerializedName("place_of_origin") var place_of_origin : String?,
+    @SerializedName("credit_line") var creditLine: String?)
+
 {
         //until access to Coinfig...
         fun getArtImageUrl(): String {

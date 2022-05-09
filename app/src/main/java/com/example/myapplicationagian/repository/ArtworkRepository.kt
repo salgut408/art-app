@@ -8,20 +8,21 @@ import com.example.myapplicationagian.room.ArtworkDatabase
 import com.example.myapplicationagian.room.asDatabaseModel
 import com.example.myapplicationagian.room.asDomainModel
 import com.example.myapplicationagian.api.ArtApiService
-import com.example.myapplicationagian.api.artWorks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class ArtworkRepository(private val database: ArtworkDatabase) {
     val allArtworks: LiveData<List<ArtworkObject>> =
-        Transformations.map(database.artDao.getArt()) {
+        Transformations.map(database.artDao.getArtAplha()) {
             it.asDomainModel()
         }
+
 
     suspend fun refreshArtworks() {
         withContext(Dispatchers.IO) {
             try{
-                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm)
+                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
+                database.artDao.clear()
                 database.artDao.insertAll(artworks.artworkObject.asDatabaseModel())
                 Log.i("artworks", "refreshArtwork fail")
             } catch (err: Exception) {

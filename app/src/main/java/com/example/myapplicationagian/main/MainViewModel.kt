@@ -5,16 +5,22 @@ import androidx.lifecycle.*
 import com.example.myapplicationagian.ArtworkObject
 import com.example.myapplicationagian.room.getDatabase
 import com.example.myapplicationagian.repository.ArtworkRepository
+import com.example.myapplicationagian.utils.FilterArt
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
+
     private val database = getDatabase(application)
+
     private val artworkRepository = ArtworkRepository(database)
     val artworkList = artworkRepository.allArtworks
 
     private val _navigateToDetailArtworkObject = MutableLiveData<ArtworkObject>()
+
     val navigateToDetailArtworkObject: LiveData<ArtworkObject>
         get() = _navigateToDetailArtworkObject
+
+    private var _filterArt = MutableLiveData(FilterArt.ALL)
 
 
 
@@ -24,6 +30,11 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
         }
     }
+
+    fun onChangeFilter(filter: FilterArt) {
+        _filterArt.postValue(filter)
+    }
+
     fun onArtworkClicked(artwork: ArtworkObject) {
         _navigateToDetailArtworkObject.value = artwork
     }

@@ -1,15 +1,15 @@
 package com.example.myapplicationagian.main
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplicationagian.ArtworkObject
+import com.example.myapplicationagian.R
 import com.example.myapplicationagian.main.MainAdapter
 import com.example.myapplicationagian.databinding.FragmentMainBinding
+import com.example.myapplicationagian.utils.FilterArt
 
 
 class MainFragment : Fragment() {
@@ -37,12 +37,13 @@ class MainFragment : Fragment() {
         binding.viewModel=viewModel
         binding.rvArtWorks.adapter = artAdapter
 
-//       setHasOptionsMenu(true)
+       setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.artworkList.observe(viewLifecycleOwner, Observer<List<ArtworkObject>>{ artwork ->
             artwork.apply {
                 artAdapter.submitList(this)
@@ -50,15 +51,19 @@ class MainFragment : Fragment() {
         })
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.main_overflow_menu, menu)
-//        super.onCreateOptionsMenu(menu, inflater)
-//    }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_overlay, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
 
 
 }
+
+
+
+
+
 
 
 
