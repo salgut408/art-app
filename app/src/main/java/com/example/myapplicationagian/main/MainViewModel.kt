@@ -1,5 +1,6 @@
 package com.example.myapplicationagian.main
 
+import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.myapplicationagian.ArtworkObject
@@ -37,6 +38,11 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     fun onArtworkClicked(artwork: ArtworkObject) {
         _navigateToDetailArtworkObject.value = artwork
+    }
+
+    @SuppressLint("NullSafeMutableLiveData")
+    fun onArtworkNavigated(){
+        _navigateToDetailArtworkObject.value = null
     }
 
     class Factory(val app: Application): ViewModelProvider.Factory{

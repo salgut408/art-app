@@ -3,6 +3,7 @@ package com.example.myapplicationagian.room
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.myapplicationagian.placeOfOrigin
 
 @Dao
 interface ArtDao {
@@ -12,6 +13,9 @@ interface ArtDao {
 
     @Query("DELETE FROM artworks")
     fun clear()
+    
+    @Query("SELECT * FROM artworks WHERE place_of_origin = :placeOfOrigin ORDER BY title" )
+            fun placeOfOriginFilter(placeOfOrigin: String): LiveData<List<DatabaseArtwork>>
 
     @Query("SELECT * FROM artworks ORDER BY artistTitle ASC")
     fun getArtAplha(): LiveData<List<DatabaseArtwork>>

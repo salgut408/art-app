@@ -1,22 +1,26 @@
 package com.example.myapplicationagian
 
-
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelField
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+
 //Top level json response
+
 data class ArtResult(
     @SerializedName("data"       ) var artworkObject       : List<ArtworkObject> = listOf<ArtworkObject>(),
     @SerializedName("config"     ) var config     : Config?         = Config()
     )
 
 
-
+@Parcelize
 data class ArtworkObject(
     @SerializedName("_score"       ) var score       : Double,
     @SerializedName("artist_title" ) var artistTitle : String?,
     @SerializedName("image_id"     ) var imageId     : String?,
     @SerializedName("title"        ) var title       : String,
     @SerializedName("place_of_origin") var place_of_origin : String?,
-    @SerializedName("credit_line") var creditLine: String?)
+    @SerializedName("credit_line") var creditLine: String?) : Parcelable
 
 {
         //until access to Coinfig...

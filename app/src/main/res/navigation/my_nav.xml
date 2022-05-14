@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/mainFragment"
+    >
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.myapplicationagian.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_artDetailFragment"
+            app:destination="@id/artDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/artDetailFragment"
+        android:name="com.example.myapplicationagian.artDetailScreen.ArtDetailFragment"
+        android:label="fragment_art_detail"
+        tools:layout="@layout/fragment_art_detail">
+
+        <argument
+            android:name="selectedArtwork"
+            app:argType="com.example.myapplicationagian.ArtworkObject" />
+    </fragment>
+</navigation>

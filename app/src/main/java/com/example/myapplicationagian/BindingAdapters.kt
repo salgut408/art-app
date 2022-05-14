@@ -17,6 +17,8 @@ fun bindUriToImage(imageView: ImageView, strUrl: String?) {
 
 
 
+
+
 //@BindingAdapter("tvName")
 //fun bindtvNameToArtistName(textView: TextView, name: String){
 //    val context = textView.context

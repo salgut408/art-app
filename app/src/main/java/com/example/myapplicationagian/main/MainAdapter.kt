@@ -34,7 +34,7 @@ class MainAdapter(private val clickListener: ArtworkListener) :
 
 
     class ArtworkListener(val clickListener: (artwork: ArtworkObject) -> Unit) {
-        fun onClick(asteroid: ArtworkObject) = clickListener(asteroid)
+        fun onClick(artwork: ArtworkObject) = clickListener(artwork)
     }
 
 
