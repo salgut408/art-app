@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryColor">
+        android:background="@color/primaryDarkColor">
 
 
         <ImageView
@@ -31,37 +31,48 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/chivo"
             android:text="@{artworkDetail.title}"
-            android:textSize="34sp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="24dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.22"
+            app:layout_constraintHorizontal_bias="0.079"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.522" />
+            app:layout_constraintVertical_bias="0.359"
+            tools:text="Title" />
 
         <TextView
             android:id="@+id/textView2"
+            android:textColor="@color/secondaryTextColor"
+            android:fontFamily="@font/chivo"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{artworkDetail.place_of_origin}"
-            android:textSize="24sp"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.191"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:text="NAme" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:fontFamily="@font/chivo"
             android:text="@{artworkDetail.artistTitle}"
-            android:textSize="16sp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.768"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.773"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Place of origin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

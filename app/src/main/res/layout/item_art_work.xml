@@ -35,24 +35,24 @@
             android:id="@+id/imageView"
             android:layout_width="349dp"
             android:layout_height="267dp"
-            android:adjustViewBounds="true"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
+            android:adjustViewBounds="true"
             android:backgroundTint="@color/design_default_color_primary_dark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:pictureUrl="@{artwork.otherImgUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:pictureUrl="@{artwork.otherImgUrl}"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
             android:id="@+id/tvArtistName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="64dp"
             android:text="@{artwork.artistTitle}"
             android:textColor="@color/secondaryDarkColor"
             android:textSize="16sp"
@@ -65,27 +65,28 @@
             tools:text="artistName" />
 
         <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/materialDivider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:dividerColor="@color/secondaryLightColor"
             app:dividerInsetEnd="16dp"
             app:dividerInsetStart="16dp"
             app:dividerThickness="4dp"
-            app:dividerColor="@color/secondaryLightColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/placeOfOrigin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="@{artwork.place_of_origin}"
 
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            android:text="@{artwork.place_of_origin}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.858"
-            app:layout_constraintStart_toEndOf="@+id/tvName" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvArtistName"
+            tools:text="place of origin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

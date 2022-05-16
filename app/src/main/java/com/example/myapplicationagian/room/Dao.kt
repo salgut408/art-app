@@ -28,8 +28,8 @@ interface ArtDao {
 
 }
 
-
-@Database(entities = [DatabaseArtwork::class], version = 6, exportSchema = false)
+// TODO Update schema
+@Database(entities = [DatabaseArtwork::class], version = 11, exportSchema = false)
 abstract class ArtworkDatabase: RoomDatabase() {
     abstract val artDao: ArtDao
 }
