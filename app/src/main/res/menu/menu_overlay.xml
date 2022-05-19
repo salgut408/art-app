@@ -7,5 +7,8 @@
     <item
         android:id="@+id/show_aplha_sort_menu"
         android:title="Sort alphabetical" />
+    <item
+        android:id="@+id/show_country_sort"
+        android:title="Sort by country" />
 
 </menu>

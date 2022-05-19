@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class ArtworkRepository(private val database: ArtworkDatabase) {
     val allArtworks: LiveData<List<ArtworkObject>> =
-        Transformations.map(database.artDao.getArtAplha()) {
+        Transformations.map(database.artDao.getArt()) {
             it.asDomainModel()
         }
 

@@ -73,6 +73,24 @@ class MainFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        viewModel.onChangeFilter(
+//            when (item.itemId) {
+//                R.id.show_aplha_sort_menu -> {
+//                    FilterArt.ALPHABETIZED
+//                }
+//                R.id.show_country_sort_menu -> {
+//                    FilterArt.COUNTRY
+//                }
+//                else -> {
+//                    FilterArt.ALL
+//                }
+//            }
+//        )
+//        return true
+//
+//    }
+
 
 
 }
