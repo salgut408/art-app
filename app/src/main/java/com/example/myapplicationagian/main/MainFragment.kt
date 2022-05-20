@@ -15,6 +15,7 @@ import com.example.myapplicationagian.R
 import com.example.myapplicationagian.main.MainAdapter
 import com.example.myapplicationagian.databinding.FragmentMainBinding
 import com.example.myapplicationagian.utils.FilterArt
+import java.util.logging.Filter
 
 
 class MainFragment : Fragment() {
@@ -54,6 +55,7 @@ class MainFragment : Fragment() {
             }
         })
 
+
        setHasOptionsMenu(true)
         return binding.root
     }
@@ -73,23 +75,30 @@ class MainFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        viewModel.onChangeFilter(
-//            when (item.itemId) {
-//                R.id.show_aplha_sort_menu -> {
-//                    FilterArt.ALPHABETIZED
-//                }
-//                R.id.show_country_sort_menu -> {
-//                    FilterArt.COUNTRY
-//                }
-//                else -> {
-//                    FilterArt.ALL
-//                }
-//            }
-//        )
-//        return true
-//
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.onChangeFilter(
+            when (item.itemId) {
+                R.id.show_aplha_sort_menu -> {
+                    FilterArt.ALPHABETIZED
+                }
+                R.id.show_country_sort -> {
+                    FilterArt.COUNTRY
+                }
+                R.id.sort_by_least_Colorful -> {
+                    FilterArt.LEAST_COLOR
+                }
+                R.id.sort_by_most_Colorful -> {
+                    FilterArt.MOST_COLOR
+                }
+
+                else -> {
+                    FilterArt.ALL
+                }
+            }
+        )
+        return true
+
+    }
 
 
 

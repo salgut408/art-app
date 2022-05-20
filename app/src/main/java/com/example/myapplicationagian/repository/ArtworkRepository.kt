@@ -12,8 +12,25 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class ArtworkRepository(private val database: ArtworkDatabase) {
+
     val allArtworks: LiveData<List<ArtworkObject>> =
-        Transformations.map(database.artDao.getArt()) {
+        Transformations.map(database.artDao.getArtInDB()) {
+            it.asDomainModel()
+        }
+    val alphaArtworks: LiveData<List<ArtworkObject>> =
+        Transformations.map(database.artDao.getArtAplha()) {
+            it.asDomainModel()
+        }
+    val artSortByCountry: LiveData<List<ArtworkObject>> =
+        Transformations.map(database.artDao.placeOfOriginFilter()) {
+            it.asDomainModel()
+        }
+    val mostColorfulSort: LiveData<List<ArtworkObject>> =
+        Transformations.map(database.artDao.sortByMostColorfulness()) {
+            it.asDomainModel()
+        }
+    val leastColorfulSort: LiveData<List<ArtworkObject>> =
+        Transformations.map(database.artDao.sortByLeastColorfulness()) {
             it.asDomainModel()
         }
 
@@ -21,10 +38,13 @@ class ArtworkRepository(private val database: ArtworkDatabase) {
     suspend fun refreshArtworks() {
         withContext(Dispatchers.IO) {
             try{
-                var artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
+
+                val artworks = ArtApiService.ArtApi.restrofitService.getArt(fieldTerms, searchTerm, limit)
                 database.artDao.clear()
                 database.artDao.insertAll(artworks.artworkObject.asDatabaseModel())
-                Log.i("artworks", "refreshArtwork fail")
+                database.artDao.getArtInDB()
+
+                Log.i("artworks", "refreshArtwork Works")
             } catch (err: Exception) {
                 Log.i("fail", err.message.toString())
 

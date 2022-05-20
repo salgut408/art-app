@@ -6,9 +6,17 @@
         android:title="No sort" />
     <item
         android:id="@+id/show_aplha_sort_menu"
-        android:title="Sort alphabetical" />
+        android:title="Sort alphabetical artist" />
     <item
         android:id="@+id/show_country_sort"
         android:title="Sort by country" />
+
+    <item
+        android:id="@+id/sort_by_least_Colorful"
+        android:title="Sort by least colorful" />
+
+    <item
+        android:id="@+id/sort_by_most_Colorful"
+        android:title="Sort by most colorful" />
 
 </menu>

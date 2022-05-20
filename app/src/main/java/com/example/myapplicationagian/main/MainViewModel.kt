@@ -14,7 +14,10 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val database = getDatabase(application)
 
     private val artworkRepository = ArtworkRepository(database)
-    val artworkList = artworkRepository.allArtworks
+
+//this was moved/changed
+//    val artworkList = artworkRepository.allArtworks
+//    val art = artworkRepository.allArtworks
 
     private val _navigateToDetailArtworkObject = MutableLiveData<ArtworkObject>()
 
@@ -23,12 +26,21 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     private var _filterArt = MutableLiveData(FilterArt.ALL)
 
+    val artworkList =  Transformations.switchMap(_filterArt) {
+        when(it!!) {
+            FilterArt.ALPHABETIZED -> artworkRepository.alphaArtworks
+            FilterArt.COUNTRY -> artworkRepository.artSortByCountry
+            FilterArt.LEAST_COLOR -> artworkRepository.leastColorfulSort
+            FilterArt.MOST_COLOR -> artworkRepository.mostColorfulSort
+            else -> artworkRepository.allArtworks
+        }
+    }
+
 
 
     init {
         viewModelScope.launch {
             artworkRepository.refreshArtworks()
-
         }
     }
 

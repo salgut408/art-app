@@ -1,9 +1,10 @@
 package com.example.myapplicationagian.utils
 
 enum class FilterArt {
-    CATS,
-    DOGS,
+    LEAST_COLOR,
+    MOST_COLOR,
     PEOPLE,
     ALL,
+    COUNTRY,
     ALPHABETIZED
 }

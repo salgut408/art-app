@@ -3,33 +3,46 @@ package com.example.myapplicationagian.room
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.myapplicationagian.placeOfOrigin
+import com.example.myapplicationagian.ArtworkObject
+
 
 @Dao
 interface ArtDao {
 
     @Query("SELECT * FROM artworks")
-    fun getArt(): LiveData<List<DatabaseArtwork>>
+    fun getArtInDB(): LiveData<List<DatabaseArtwork>>
+
+//    @Query("SELECT * FROM artworks WHERE artistTitle LIKE :name)
+//    fun getPicasso(): LiveData<List<DatabaseArtwork>>
 
     @Query("DELETE FROM artworks")
     fun clear()
-    
-    @Query("SELECT * FROM artworks WHERE place_of_origin = :placeOfOrigin ORDER BY title" )
-            fun placeOfOriginFilter(placeOfOrigin: String): LiveData<List<DatabaseArtwork>>
+
+//    @Delete
+//    fun deleteArt(art: ArtworkObject)
+
+    //filter place of origin
+    @Query("SELECT * FROM artworks ORDER BY place_of_origin ASC" )
+            fun placeOfOriginFilter(): LiveData<List<DatabaseArtwork>>
 
     @Query("SELECT * FROM artworks ORDER BY artistTitle ASC")
     fun getArtAplha(): LiveData<List<DatabaseArtwork>>
 
+    @Query("SELECT * FROM artworks ORDER BY colorfulness DESC")
+    fun sortByMostColorfulness(): LiveData<List<DatabaseArtwork>>
+
+    @Query("SELECT * FROM artworks ORDER BY colorfulness ASC")
+    fun sortByLeastColorfulness(): LiveData<List<DatabaseArtwork>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll( artwork: List<DatabaseArtwork>)
-//filter place of origin
-    @Query("SELECT * FROM artworks ORDER BY place_of_origin")
-    fun getArtFrom(): LiveData<List<DatabaseArtwork>>
+
+
 
 }
 
 // TODO Update schema
-@Database(entities = [DatabaseArtwork::class], version = 11, exportSchema = false)
+@Database(entities = [DatabaseArtwork::class], version = 12, exportSchema = false)
 abstract class ArtworkDatabase: RoomDatabase() {
     abstract val artDao: ArtDao
 }
@@ -45,6 +58,7 @@ fun getDatabase(context: Context): ArtworkDatabase {
                 .fallbackToDestructiveMigration()
                 .build()
         }
+
     }
     return INSTANCE
 }
