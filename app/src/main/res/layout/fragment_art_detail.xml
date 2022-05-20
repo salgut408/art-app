@@ -34,27 +34,26 @@
             android:fontFamily="@font/chivo"
             android:text="@{artworkDetail.title}"
             android:textColor="@color/secondaryTextColor"
-            android:textSize="24dp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.359"
+            app:layout_constraintVertical_bias="0.097"
             tools:text="Title" />
 
         <TextView
             android:id="@+id/textView2"
-            android:textColor="@color/secondaryTextColor"
-            android:fontFamily="@font/chivo"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/chivo"
             android:text="@{artworkDetail.place_of_origin}"
+            android:textColor="@color/secondaryTextColor"
             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.191"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:text="NAme" />
@@ -68,11 +67,45 @@
             android:text="@{artworkDetail.artistTitle}"
             android:textColor="@color/secondaryTextColor"
             android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCreditLine"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:layout_editor_absoluteX="38dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.773"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Place of origin" />
+
+        <TextView
+            android:id="@+id/textViewCreditLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/chivo"
+            android:text="@{artworkDetail.credit_line}"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewColorfulness"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:layout_editor_absoluteX="38dp"
+            tools:text="Credit line" />
+
+        <TextView
+            android:id="@+id/textViewColorfulness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/chivo"
+            android:text="@{artworkDetail.colorfulness.toString()}"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCreditLine"
+            tools:text="Credit line" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
