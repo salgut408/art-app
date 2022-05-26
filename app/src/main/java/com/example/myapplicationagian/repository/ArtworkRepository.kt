@@ -25,7 +25,7 @@ class ArtworkRepository(private val database: ArtworkDatabase) {
         Transformations.map(database.artDao.placeOfOriginFilter()) {
             it.asDomainModel()
         }
-    val mostColorfulSort: LiveData<List<ArtworkObject>> =
+    val mostColorfulSort: LiveData<List<ArtworkObject>> = 
         Transformations.map(database.artDao.sortByMostColorfulness()) {
             it.asDomainModel()
         }
